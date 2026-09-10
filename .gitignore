@@ -6,3 +6,10 @@ Thumbs.db
 # Установщик 1С-Битрикс: вендорский скрипт, к статическому сайту отношения не имеет.
 # GitHub Pages не выполняет PHP. Убери строку ниже, если он нужен в репозитории.
 bitrixsetup.php
+
+# Локальное окружение 1С-Битрикс (Docker).
+# Конфигурация (Dockerfile, docker-compose.yml, php.ini) версионируется,
+# а само ядро Битрикса, база и логи — нет: это ~1 ГБ вендорских файлов.
+bitrix-docker/www/*
+!bitrix-docker/www/.gitkeep
+bitrix-docker/logs/

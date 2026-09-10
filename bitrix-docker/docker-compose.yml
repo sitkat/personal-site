@@ -1,0 +1,52 @@
+# Локальное окружение для 1С-Битрикс: Apache + PHP 8.2 и MySQL 8.
+# Корень сайта — каталог ./www, он монтируется в /var/www/html контейнера.
+name: bitrix-local
+
+services:
+  web:
+    build: .
+    container_name: bitrix-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/var/www/html
+      - ./logs:/var/log/apache2
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Параметры для мастера установки Битрикса
+      MYSQL_HOST: db
+      MYSQL_DATABASE: bitrix
+      MYSQL_USER: bitrix
+      MYSQL_PASSWORD: bitrix
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: bitrix-db
+    command:
+      # Битрикс не работает со строгим режимом MySQL по умолчанию
+      - --sql-mode=
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-strict-mode=0
+      - --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bitrix
+      MYSQL_USER: bitrix
+      MYSQL_PASSWORD: bitrix
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  db-data:
