@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Контакты: телефон, почта, форма обратной связи и схема проезда">
+  <title>Контакты — Ситникова Е. Г.</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__logo" src="img/logo.svg" alt="Логотип персонального сайта">
+    <h1 class="header__title">Ситникова Екатерина Георгиевна</h1>
+    <p class="header__subtitle">Студент, начинающий веб-разработчик</p>
+  </header>
+
+  <nav class="nav" id="main-menu">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+      <li class="nav__item"><a class="nav__link" href="sitemap.html">Карта сайта</a></li>
+      <li class="nav__item"><a class="nav__link" href="about.html">О себе</a></li>
+      <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+      <li class="nav__item"><a class="nav__link nav__link--active" href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar sidebar--left">
+      <h3 class="sidebar__title">Коротко о себе</h3>
+      <ul class="sidebar__list">
+        <li>Группа ПИ1у/24б</li>
+        <li>Направление: прикладная информатика</li>
+        <li>Город: Москва</li>
+      </ul>
+      <h3 class="sidebar__title">Связаться</h3>
+      <ul class="sidebar__list">
+        <li><a href="contacts.html">Форма обратной связи</a></li>
+        <li><a href="contacts.html">Написать через форму</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>Контакты</h2>
+
+      <p>Со мной удобнее всего связаться по электронной почте или через форму
+        в нижней части страницы. На письма отвечаю в течение суток, в выходные —
+        в понедельник утром.</p>
+
+      <h3>Способы связи</h3>
+      <ul>
+        <li>через <a href="#feedback">форму обратной связи</a> внизу страницы;</li>
+        <li>по электронной почте — адрес отправлю в ответ на сообщение из формы;</li>
+        <li>в мессенджере — по договорённости;</li>
+        <li>очно — в университете, аудиторию согласуем заранее.</li>
+      </ul>
+
+      <h3>Когда я на связи</h3>
+      <table class="table">
+        <caption>График ответов на сообщения</caption>
+        <thead>
+          <tr>
+            <th>День недели</th>
+            <th>Время</th>
+            <th>Способ связи</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Понедельник — пятница</td>
+            <td>18:00 — 22:00</td>
+            <td>почта, телефон</td>
+          </tr>
+          <tr>
+            <td>Суббота</td>
+            <td>12:00 — 18:00</td>
+            <td>почта</td>
+          </tr>
+          <tr>
+            <td>Воскресенье</td>
+            <td>выходной</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Как добраться</h3>
+      <figure class="content__figure">
+        <img class="content__map" src="img/map.svg" alt="Схема проезда до университета" width="520">
+        <figcaption>Схема проезда: от метро около 7 минут пешком</figcaption>
+      </figure>
+
+      <hr>
+
+      <h3>Форма обратной связи</h3>
+      <p>Опишите задачу — я отвечу и уточню детали. Поля, отмеченные звёздочкой,
+        обязательны для заполнения. Перед отправкой рекомендую заглянуть в раздел
+        <a href="services.html">«Услуги»</a>.</p>
+
+      <form class="form form--feedback" id="feedback" action="#" method="post">
+        <fieldset>
+          <legend>Написать мне</legend>
+
+          <p class="form__row">
+            <label class="form__label" for="feedback-name">Имя *</label>
+            <input class="form__input" type="text" id="feedback-name" name="name"
+                   placeholder="Как вас зовут" required>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="feedback-email">E-mail *</label>
+            <input class="form__input" type="email" id="feedback-email" name="email"
+                   placeholder="you@example.ru" required>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="feedback-topic">Тема обращения</label>
+            <select class="form__input" id="feedback-topic" name="topic">
+              <option value="order">Заказ работы</option>
+              <option value="question">Вопрос по учёбе</option>
+              <option value="cooperation">Предложение о сотрудничестве</option>
+              <option value="other">Другое</option>
+            </select>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="feedback-message">Сообщение *</label>
+            <textarea class="form__input" id="feedback-message" name="message" rows="6"
+                      placeholder="Опишите задачу как можно подробнее" required></textarea>
+          </p>
+
+          <fieldset class="form__group">
+            <legend>Как удобнее получить ответ</legend>
+            <label><input type="radio" name="answer" value="email" checked> по почте</label>
+            <label><input type="radio" name="answer" value="phone"> по телефону</label>
+          </fieldset>
+
+          <p class="form__row">
+            <label>
+              <input type="checkbox" name="agree" value="yes" required>
+              Согласен на обработку персональных данных *
+            </label>
+          </p>
+
+          <p class="form__row">
+            <button class="button" type="submit">Отправить сообщение</button>
+            <button class="button button--ghost" type="reset">Очистить форму</button>
+          </p>
+        </fieldset>
+      </form>
+    </main>
+
+    <aside class="sidebar sidebar--right">
+      <h3 class="sidebar__title">Сейчас изучаю</h3>
+      <ul class="sidebar__list">
+        <li>HTML5 и семантическую вёрстку</li>
+        <li>CSS3: селекторы и анимации</li>
+        <li>jQuery и jQuery UI</li>
+      </ul>
+      <h3 class="sidebar__title">Полезные ссылки</h3>
+      <ul class="sidebar__list">
+        <li><a href="https://learn.javascript.ru/" target="_blank" rel="noopener">Учебник по JavaScript</a></li>
+        <li><a href="https://html5css.ru/jquery/default.php" target="_blank" rel="noopener">Справочник jQuery</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Валидатор W3C</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ситникова Екатерина Георгиевна. Учебный проект, группа ПИ1у/24б.</p>
+    <p><a href="sitemap.html">Карта сайта</a> | <a href="contacts.html">Обратная связь</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

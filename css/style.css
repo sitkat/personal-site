@@ -1,0 +1,718 @@
+/* =========================================================================
+   Персональный сайт Ситниковой Е. Г.
+   Практическая работа № 1.2 — CSS свойства для оформления текста, форм,
+   графики и других элементов HTML
+
+   В коде расставлены маркеры вида [N] — это номера пунктов задания:
+
+     [1]  селектор тега                 [11] цветной фон заголовка
+     [2]  селектор класса               [12] стиль горизонтальной линии
+     [3]  селектор идентификатора       [13] межстрочный интервал
+     [4]  контекстный селектор          [14] стиль и удаление маркеров списка
+     [5]  дочерний селектор             [15] рамка к изображению
+     [6]  смежный селектор              [16] размножение фонового изображения
+     [7]  псевдоклассы ссылок           [17] позиционирование фона
+     [8]  принцип каскадирования        [18] фиксированный фон при прокрутке
+     [9]  форматирование текста         [19] прозрачность изображения
+     [10] удаление подчёркивания ссылок [20] элементы CSS3
+   ========================================================================= */
+
+
+/* -------------------------------------------------------------------------
+   1. ПЕРЕМЕННЫЕ
+   [20] CSS3: пользовательские свойства — все цвета и размеры в одном месте
+   ------------------------------------------------------------------------- */
+
+:root {
+  --color-accent:       #d9372b;   /* красный — меню, акценты */
+  --color-accent-dark:  #a8281f;
+  --color-accent-light: #f6c6cf;   /* розовый — боковые колонки */
+  --color-bg:           #fdfbe8;   /* кремовый — фон страницы */
+  --color-content:      #ffffff;   /* белый — область контента */
+  --color-content-tint: #eaf7ea;   /* бледно-зелёный — подсветка строк */
+  --color-text:         #2f2b28;
+  --color-text-muted:   #6b635c;
+  --color-border:       #e0d6c8;
+
+  --gap: 16px;
+  --radius: 10px;
+  --page-width: 1140px;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* -------------------------------------------------------------------------
+   2. БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ
+   ------------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;   /* ширина элемента считается вместе с рамкой */
+}
+
+/* [1]  СЕЛЕКТОР ТЕГА — правило по имени элемента, без классов и id
+   [9]  ФОРМАТИРОВАНИЕ ТЕКСТА — гарнитура, кегль и цвет текста всей страницы
+   [13] МЕЖСТРОЧНЫЙ ИНТЕРВАЛ — line-height: 1.6 (в 1,6 раза больше кегля)
+   [16] РАЗМНОЖЕНИЕ ФОНА — repeat: узор замостит страницу по горизонтали и вертикали
+   [17] ПОЗИЦИОНИРОВАНИЕ ФОНА — отсчёт от левого верхнего угла
+   [18] ФИКСИРОВАННЫЙ ФОН — при прокрутке узор остаётся на месте, едет только контент */
+body {
+  margin: 0;
+  padding: var(--gap) 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: url("../img/bg.svg");
+  background-repeat: repeat;
+  background-position: left top;
+  background-attachment: fixed;
+}
+
+/* [1] СЕЛЕКТОР ТЕГА — общее оформление всех заголовков сразу
+   [9] ФОРМАТИРОВАНИЕ ТЕКСТА — для заголовков выбрана шрифтовая пара с засечками */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--color-accent-dark);
+}
+
+/* Общая сетка: все крупные блоки выровнены по одной ширине и центрированы */
+.header,
+.nav,
+.layout,
+.footer {
+  max-width: var(--page-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* -------------------------------------------------------------------------
+   3. ШАПКА САЙТА
+   ------------------------------------------------------------------------- */
+
+/* [2]  СЕЛЕКТОР КЛАССА — правило применяется к элементам с class="header"
+   [11] ЦВЕТНОЙ ФОН ЗАГОЛОВКА — заливка шапки: сплошной цвет как запасной
+        вариант и градиент поверх него
+   [20] CSS3: linear-gradient, border-radius */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  padding: 22px 28px;
+  background-color: var(--color-accent-light);
+  background-image: linear-gradient(135deg, #fdfbe8 0%, #f6c6cf 100%);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* [20] CSS3: box-shadow */
+.header__logo {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* [9]  ФОРМАТИРОВАНИЕ ТЕКСТА — кегль, разрядка букв, цвет
+   [20] CSS3: text-shadow */
+.header__title {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  color: var(--color-accent-dark);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* [9] ФОРМАТИРОВАНИЕ ТЕКСТА — курсивное начертание подзаголовка */
+.header__subtitle {
+  margin: 4px 0 0;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+
+/* -------------------------------------------------------------------------
+   4. МЕНЮ: маркированный список превращён в горизонтальное меню
+   ------------------------------------------------------------------------- */
+
+/* [3] СЕЛЕКТОР ИДЕНТИФИКАТОРА — меню на странице одно, поэтому id, а не класс */
+#main-menu {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-dark);
+}
+
+/* [4]  КОНТЕКСТНЫЙ СЕЛЕКТОР (селектор потомка) — список внутри меню,
+        на любой глубине вложенности
+   [14] УДАЛЕНИЕ МАРКЕРОВ СПИСКА — list-style: none убирает кружки у пунктов */
+#main-menu .nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* [5] ДОЧЕРНИЙ СЕЛЕКТОР — только те <li>, что лежат непосредственно
+       в .nav__list, а не в любом вложенном списке */
+.nav__list > li {
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.nav__list > li:last-child {
+  border-right: none;
+}
+
+/* [10] УДАЛЕНИЕ ПОДЧЁРКИВАНИЯ ССЫЛОК — text-decoration: none
+   [20] CSS3: transition — плавная смена фона вместо мгновенной */
+.nav__link {
+  display: block;
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+
+/* [7] ПСЕВДОКЛАССЫ ССЫЛОК в порядке LVHA: :link — :visited — :hover — :active.
+       Порядок обязателен: у всех четырёх правил одинаковая специфичность,
+       поэтому при равенстве побеждает записанное последним. Если поставить
+       :hover раньше :visited, посещённая ссылка перестанет подсвечиваться
+       при наведении. */
+.nav__link:link    { color: #ffffff; }
+.nav__link:visited { color: #ffe9e9; }
+.nav__link:hover   { background-color: var(--color-accent-dark); }
+.nav__link:active  { background-color: #7d1c16; }
+
+/* Текущий раздел выделен классом-модификатором */
+.nav__link--active {
+  background-color: var(--color-accent-dark);
+  font-weight: 700;
+}
+
+
+/* -------------------------------------------------------------------------
+   5. МАКЕТ: левая колонка — контент — правая колонка
+   [20] CSS3: сеточная вёрстка display: grid
+   ------------------------------------------------------------------------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: 210px 1fr 210px;
+  gap: var(--gap);
+  padding: var(--gap);
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--color-border);
+  border-top: none;
+}
+
+.sidebar {
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  background-color: var(--color-accent-light);
+  border-radius: var(--radius);
+}
+
+/* [9] ФОРМАТИРОВАНИЕ ТЕКСТА — прописные буквы и разрядка в заголовках колонок */
+.sidebar__title {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* [14] ИЗМЕНЕНИЕ СТИЛЯ МАРКЕРОВ — квадратные маркеры вместо кружков */
+.sidebar__list {
+  margin: 0 0 18px;
+  padding-left: 20px;
+  list-style: square;
+}
+
+.sidebar__list li {
+  margin-bottom: 4px;
+}
+
+/* [6] СМЕЖНЫЙ СЕЛЕКТОР — список, идущий сразу за заголовком колонки,
+       прижимается к нему вплотную */
+.sidebar__title + .sidebar__list {
+  margin-top: 0;
+}
+
+.content {
+  padding: 24px 28px;
+  background-color: var(--color-content);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+
+/* -------------------------------------------------------------------------
+   6. КОНТЕНТ: текст, ссылки, списки, линии, изображения
+   ------------------------------------------------------------------------- */
+
+/* [8] ПРИНЦИП КАСКАДИРОВАНИЯ.
+       К абзацам внутри .content подходят оба правила, записанные ниже.
+       Побеждает первое, хотя стоит раньше: его специфичность (0,1,1 — один
+       класс и один тег) выше, чем у второго (0,0,1 — только тег). Порядок
+       записи учитывается лишь при равной специфичности.
+       Итог: абзацы контента — тёмно-серые и выключены по формату,
+       абзацы вне .content (например, в подвале) — цвета --color-text.
+   [9] ФОРМАТИРОВАНИЕ ТЕКСТА — выключка по ширине и красная строка */
+.content p {
+  color: #333333;
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+p {
+  color: var(--color-text);
+}
+
+/* [6] СМЕЖНЫЙ СЕЛЕКТОР — абзац, идущий непосредственно за заголовком h2,
+       оформлен как вводный: крупнее, полужирный, без красной строки.
+       Селектор записан от .content, чтобы его специфичность (0,1,2) была выше,
+       чем у правила .content p (0,1,1) — иначе цвет не переопределился бы. */
+.content h2 + p {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--color-accent-dark);
+  text-align: left;
+  text-indent: 0;
+}
+
+/* [4]  КОНТЕКСТНЫЙ СЕЛЕКТОР — ссылки внутри области контента
+   [7]  ПСЕВДОКЛАССЫ ССЫЛОК
+   [10] УДАЛЕНИЕ ПОДЧЁРКИВАНИЯ — вместо него точечная линия снизу */
+.content a:link,
+.content a:visited {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-accent);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.content a:hover {
+  color: var(--color-accent-dark);
+  border-bottom-style: solid;
+}
+
+.content a:active {
+  color: #7d1c16;
+}
+
+/* [14] ИЗМЕНЕНИЕ СТИЛЯ МАРКЕРОВ СПИСКА в контенте */
+.content ul {
+  padding-left: 22px;
+  list-style-type: circle;
+  overflow: hidden;   /* список не обтекает плавающий значок: все маркеры на одном отступе */
+}
+
+.content ol {
+  padding-left: 24px;
+  list-style-type: decimal;
+  overflow: hidden;
+}
+
+.content li {
+  margin-bottom: 6px;
+}
+
+/* [14] УДАЛЕНИЕ МАРКЕРОВ в дереве карты сайта
+   [20] CSS3: псевдоэлемент ::before подставляет тире вместо маркера */
+.sitemap-tree,
+.sitemap-tree ul {
+  padding-left: 18px;
+  list-style: none;
+}
+
+.sitemap-tree > li {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.sitemap-tree ul li {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.sitemap-tree ul li::before {
+  content: "— ";
+  color: var(--color-accent);
+}
+
+/* [12] ИЗМЕНЕНИЕ СТИЛЯ ГОРИЗОНТАЛЬНОЙ ЛИНИИ — вместо рельефной рамки,
+        которую браузер рисует по умолчанию, задана градиентная полоса
+        со скруглением и без границ */
+hr {
+  clear: both;        /* линия не обрывается о плавающее изображение */
+  height: 3px;
+  margin: 28px 0;
+  border: none;
+  border-radius: 2px;
+  background-image: linear-gradient(90deg,
+                    var(--color-accent) 0%,
+                    var(--color-accent-light) 60%,
+                    transparent 100%);
+}
+
+/* [15] РАМКА К ИЗОБРАЖЕНИЮ — border вокруг фотографии
+   [19] ЭФФЕКТ ПРОЗРАЧНОСТИ — opacity: 0.85, при наведении снимается
+   [20] CSS3: border-radius, box-shadow, transition, transform */
+.content__photo {
+  float: right;
+  margin: 0 0 var(--gap) var(--gap);
+  border: 5px solid var(--color-accent-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content__photo:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* [15] РАМКА + [19] ПРОЗРАЧНОСТЬ для значков услуг */
+.content__icon {
+  float: left;
+  margin: 0 var(--gap) 8px 0;
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.content__icon:hover {
+  opacity: 1;
+}
+
+.content__figure {
+  float: right;
+  max-width: 260px;
+  margin: 0 0 var(--gap) var(--gap);
+  padding: 10px;
+  text-align: center;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* [4] КОНТЕКСТНЫЙ СЕЛЕКТОР — фотография внутри блока с подписью
+       не обтекается и не имеет внешних отступов */
+.content__figure .content__photo {
+  float: none;
+  margin: 0;
+}
+
+/* [9] ФОРМАТИРОВАНИЕ ТЕКСТА — подпись к иллюстрации мельче основного текста */
+.content__figure figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* [15] РАМКА К ИЗОБРАЖЕНИЮ — схема проезда и схема структуры сайта */
+.content__map,
+.content__scheme {
+  border: 4px solid var(--color-accent-light);
+  border-radius: var(--radius);
+}
+
+/* Заголовки в контенте сбрасывают обтекание, чтобы разделы не наезжали
+   на плавающие изображения предыдущего раздела */
+.content h3 {
+  clear: both;
+  padding-top: 4px;
+}
+
+
+/* -------------------------------------------------------------------------
+   7. ТАБЛИЦЫ
+   ------------------------------------------------------------------------- */
+
+.table {
+  width: 100%;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  border-collapse: collapse;   /* рамки соседних ячеек сливаются в одну линию */
+  box-shadow: var(--shadow);
+}
+
+/* [9] ФОРМАТИРОВАНИЕ ТЕКСТА — подпись таблицы курсивом по левому краю */
+.table caption {
+  margin-bottom: 8px;
+  font-style: italic;
+  text-align: left;
+  color: var(--color-text-muted);
+}
+
+/* [4] КОНТЕКСТНЫЙ СЕЛЕКТОР — заголовочные ячейки внутри шапки таблицы */
+.table thead th {
+  padding: 10px 12px;
+  text-align: left;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-dark);
+}
+
+.table td {
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+}
+
+/* [20] CSS3: псевдокласс :nth-child — чередование фона чётных строк */
+.table tbody tr:nth-child(even) {
+  background-color: var(--color-content-tint);
+}
+
+.table tbody tr:hover {
+  background-color: #fdf1d8;
+}
+
+.table tfoot td {
+  font-weight: 700;
+  background-color: var(--color-accent-light);
+}
+
+
+/* -------------------------------------------------------------------------
+   8. ФОРМЫ И КНОПКИ
+   ------------------------------------------------------------------------- */
+
+.form {
+  margin-bottom: 24px;
+}
+
+/* [4] КОНТЕКСТНЫЙ СЕЛЕКТОР — рамка группы полей внутри формы */
+.form fieldset {
+  padding: 16px 20px;
+  border: 2px solid var(--color-accent-light);
+  border-radius: var(--radius);
+}
+
+.form legend {
+  padding: 0 10px;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--color-accent-dark);
+}
+
+.form__row {
+  margin: 0 0 14px;
+  text-indent: 0;   /* красная строка из .content p здесь не нужна */
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  max-width: 460px;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: #fffdf6;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* [7] ПСЕВДОКЛАССЫ — состояние поля в фокусе и обязательного поля */
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(217, 55, 43, 0.15);
+}
+
+.form__input:required {
+  border-left: 3px solid var(--color-accent);
+}
+
+textarea.form__input {
+  resize: vertical;   /* растягивать поле можно только по высоте */
+}
+
+.form__group {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+}
+
+/* [4] КОНТЕКСТНЫЙ СЕЛЕКТОР — подписи переключателей внутри группы */
+.form__group label {
+  margin-right: 16px;
+  font-size: 0.92rem;
+}
+
+.button {
+  padding: 10px 22px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.1s ease;
+}
+
+.button:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* [20] CSS3: transform — кнопка «вдавливается» при нажатии */
+.button:active {
+  transform: translateY(1px);
+}
+
+.button--ghost {
+  color: var(--color-accent);
+  background-color: transparent;
+  border: 1px solid var(--color-accent);
+}
+
+.button--ghost:hover {
+  color: #ffffff;
+  background-color: var(--color-accent);
+}
+
+
+/* -------------------------------------------------------------------------
+   9. ПОДВАЛ
+   ------------------------------------------------------------------------- */
+
+.footer {
+  padding: 18px 28px;
+  font-size: 0.9rem;
+  text-align: center;
+  background-image: linear-gradient(135deg, #f6c6cf 0%, #fdfbe8 100%);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.footer p {
+  margin: 4px 0;
+}
+
+/* [4]  КОНТЕКСТНЫЙ СЕЛЕКТОР — ссылки внутри подвала
+   [10] УДАЛЕНИЕ ПОДЧЁРКИВАНИЯ, оно возвращается только при наведении */
+.footer a {
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* -------------------------------------------------------------------------
+   10. ЭФФЕКТЫ CSS3
+   [20] анимация по ключевым кадрам и оформление выделенного текста
+   ------------------------------------------------------------------------- */
+
+@keyframes logo-in {
+  from { opacity: 0; transform: translateY(-8px) rotate(-6deg); }
+  to   { opacity: 1; transform: translateY(0)    rotate(0deg);  }
+}
+
+.header__logo {
+  animation: logo-in 0.6s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.content {
+  animation: fade-in 0.5s ease-in;
+}
+
+::selection {
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-light);
+}
+
+
+/* -------------------------------------------------------------------------
+   11. АДАПТИВНОСТЬ
+   [20] CSS3: медиазапросы
+   ------------------------------------------------------------------------- */
+
+/* Планшет: правая колонка уходит под контент на всю ширину */
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 190px 1fr;
+  }
+
+  .sidebar--right {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Телефон: одна колонка, меню в столбик, изображения по центру */
+@media (max-width: 700px) {
+  body {
+    padding: 0;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar--right {
+    grid-column: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav__list {
+    flex-direction: column;
+  }
+
+  .nav__list > li {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  }
+
+  .content {
+    padding: 16px;
+  }
+
+  .content__photo,
+  .content__icon,
+  .content__figure {
+    float: none;
+    display: block;
+    margin: 0 auto var(--gap);
+  }
+
+  .table {
+    display: block;
+    overflow-x: auto;   /* широкая таблица прокручивается по горизонтали */
+  }
+}

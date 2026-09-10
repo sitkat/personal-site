@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Услуги: вёрстка страниц, оформление на CSS, поддержка сайта">
+  <title>Услуги — Ситникова Е. Г.</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__logo" src="img/logo.svg" alt="Логотип персонального сайта">
+    <h1 class="header__title">Ситникова Екатерина Георгиевна</h1>
+    <p class="header__subtitle">Студент, начинающий веб-разработчик</p>
+  </header>
+
+  <nav class="nav" id="main-menu">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+      <li class="nav__item"><a class="nav__link" href="sitemap.html">Карта сайта</a></li>
+      <li class="nav__item"><a class="nav__link" href="about.html">О себе</a></li>
+      <li class="nav__item"><a class="nav__link nav__link--active" href="services.html">Услуги</a></li>
+      <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar sidebar--left">
+      <h3 class="sidebar__title">Коротко о себе</h3>
+      <ul class="sidebar__list">
+        <li>Группа ПИ1у/24б</li>
+        <li>Направление: прикладная информатика</li>
+        <li>Город: Москва</li>
+      </ul>
+      <h3 class="sidebar__title">Связаться</h3>
+      <ul class="sidebar__list">
+        <li><a href="contacts.html">Форма обратной связи</a></li>
+        <li><a href="contacts.html">Написать через форму</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>Услуги</h2>
+
+      <p>Беру небольшие задачи по вёрстке и оформлению сайтов — такие, которые
+        можно довести до конца без ущерба для учёбы. Ниже перечислено, что именно
+        я делаю, сколько это занимает времени и сколько стоит.</p>
+
+      <h3>Вёрстка страниц</h3>
+      <img class="content__icon" src="img/service-web.svg" alt="Значок услуги «Вёрстка страниц»" width="110">
+      <p>Собираю статические страницы по готовому макету: семантическая разметка,
+        таблицы, формы, корректная работа во всех современных браузерах.</p>
+      <ul>
+        <li>разметка страницы по макету;</li>
+        <li>таблицы и формы любой сложности;</li>
+        <li>проверка кода валидатором W3C.</li>
+      </ul>
+
+      <h3>Оформление на CSS</h3>
+      <img class="content__icon" src="img/service-design.svg" alt="Значок услуги «Оформление на CSS»" width="110">
+      <p>Привожу готовую разметку к аккуратному виду: типографика, цветовая схема,
+        меню, адаптация под экраны телефонов и планшетов.</p>
+      <ul>
+        <li>оформление текста, списков и таблиц;</li>
+        <li>горизонтальное или выпадающее меню;</li>
+        <li>эффекты CSS3: тени, скругления, плавные переходы.</li>
+      </ul>
+
+      <h3>Поддержка сайта</h3>
+      <img class="content__icon" src="img/service-support.svg" alt="Значок услуги «Поддержка сайта»" width="110">
+      <p>Правлю мелочи на действующем сайте: тексты, картинки, ссылки, ошибки
+        вёрстки. Отвечаю в течение суток.</p>
+      <ul>
+        <li>обновление текстов и изображений;</li>
+        <li>исправление ошибок разметки;</li>
+        <li>консультации по работе с сайтом.</li>
+      </ul>
+
+      <hr>
+
+      <h3>Стоимость и сроки</h3>
+      <table class="table">
+        <caption>Перечень работ и ориентировочные сроки</caption>
+        <thead>
+          <tr>
+            <th>Услуга</th>
+            <th>Срок</th>
+            <th>Стоимость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Вёрстка одной страницы по макету</td>
+            <td>2 — 3 дня</td>
+            <td>по договорённости</td>
+          </tr>
+          <tr>
+            <td>Оформление страницы на CSS</td>
+            <td>1 — 2 дня</td>
+            <td>по договорённости</td>
+          </tr>
+          <tr>
+            <td>Интерактивные элементы на jQuery</td>
+            <td>2 дня</td>
+            <td>по договорённости</td>
+          </tr>
+          <tr>
+            <td>Поддержка сайта (месяц)</td>
+            <td>по договорённости</td>
+            <td>по договорённости</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Сайт-визитка «под ключ»</td>
+            <td>по договорённости</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p>Точную стоимость назову после обсуждения задачи — напишите мне через
+        <a href="contacts.html">форму обратной связи</a>.</p>
+
+      <h3>Оформить заказ</h3>
+
+      <form class="form form--order" action="#" method="post">
+        <fieldset>
+          <legend>Заявка на услугу</legend>
+
+          <p class="form__row">
+            <label class="form__label" for="order-name">Имя</label>
+            <input class="form__input" type="text" id="order-name" name="name" required>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="order-phone">Телефон</label>
+            <input class="form__input" type="tel" id="order-phone" name="phone"
+                   placeholder="+7 (___) ___-__-__">
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="order-service">Услуга</label>
+            <select class="form__input" id="order-service" name="service">
+              <option value="markup">Вёрстка страниц</option>
+              <option value="design">Оформление на CSS</option>
+              <option value="script">Интерактив на jQuery</option>
+              <option value="support">Поддержка сайта</option>
+            </select>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="order-pages">Количество страниц</label>
+            <input class="form__input" type="number" id="order-pages" name="pages"
+                   min="1" max="20" value="1">
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="order-date">Желаемый срок сдачи</label>
+            <input class="form__input" type="date" id="order-date" name="deadline">
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="order-comment">Комментарий к заказу</label>
+            <textarea class="form__input" id="order-comment" name="comment" rows="4"></textarea>
+          </p>
+
+          <p class="form__row">
+            <button class="button" type="submit">Отправить заявку</button>
+            <button class="button button--ghost" type="reset">Сбросить</button>
+          </p>
+        </fieldset>
+      </form>
+    </main>
+
+    <aside class="sidebar sidebar--right">
+      <h3 class="sidebar__title">Сейчас изучаю</h3>
+      <ul class="sidebar__list">
+        <li>HTML5 и семантическую вёрстку</li>
+        <li>CSS3: селекторы и анимации</li>
+        <li>jQuery и jQuery UI</li>
+      </ul>
+      <h3 class="sidebar__title">Полезные ссылки</h3>
+      <ul class="sidebar__list">
+        <li><a href="https://learn.javascript.ru/" target="_blank" rel="noopener">Учебник по JavaScript</a></li>
+        <li><a href="https://html5css.ru/jquery/default.php" target="_blank" rel="noopener">Справочник jQuery</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Валидатор W3C</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ситникова Екатерина Георгиевна. Учебный проект, группа ПИ1у/24б.</p>
+    <p><a href="sitemap.html">Карта сайта</a> | <a href="contacts.html">Обратная связь</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

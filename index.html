@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Персональная страница Ситниковой Екатерины Георгиевны">
+  <title>Главная — Ситникова Е. Г.</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__logo" src="img/logo.svg" alt="Логотип персонального сайта">
+    <h1 class="header__title">Ситникова Екатерина Георгиевна</h1>
+    <p class="header__subtitle">Студент, начинающий веб-разработчик</p>
+  </header>
+
+  <nav class="nav" id="main-menu">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link nav__link--active" href="index.html">Главная</a></li>
+      <li class="nav__item"><a class="nav__link" href="sitemap.html">Карта сайта</a></li>
+      <li class="nav__item"><a class="nav__link" href="about.html">О себе</a></li>
+      <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+      <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar sidebar--left">
+      <h3 class="sidebar__title">Коротко о себе</h3>
+      <ul class="sidebar__list">
+        <li>Группа ПИ1у/24б</li>
+        <li>Направление: прикладная информатика</li>
+        <li>Город: Москва</li>
+      </ul>
+      <h3 class="sidebar__title">Связаться</h3>
+      <ul class="sidebar__list">
+        <li><a href="contacts.html">Форма обратной связи</a></li>
+        <li><a href="contacts.html">Написать через форму</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>Добро пожаловать</h2>
+
+      <p>Здравствуйте! Это моя персональная страница. Здесь я рассказываю о себе,
+        о том, чему учусь, и о работах, которые выполняю в рамках учебных проектов.
+        Сайт собран вручную на HTML, CSS и JavaScript — без конструкторов и готовых шаблонов.</p>
+
+      <img class="content__photo" src="img/photo.svg" alt="Фотография Ситниковой Екатерины Георгиевны" width="220">
+
+      <p>Первая версия сайта — это чистая разметка. На следующих этапах к ней
+        добавится оформление на CSS и интерактивные элементы на jQuery, а список
+        разделов в верхней части страницы превратится в полноценное меню.</p>
+
+      <hr>
+
+      <h3>Что вы найдёте на сайте</h3>
+      <ul>
+        <li>раздел <a href="about.html">«О себе»</a> — образование, навыки, интересы;</li>
+        <li>раздел <a href="services.html">«Услуги»</a> — чем могу быть полезен;</li>
+        <li>раздел <a href="contacts.html">«Контакты»</a> — как со мной связаться;</li>
+        <li>раздел <a href="sitemap.html">«Карта сайта»</a> — структура всех страниц.</li>
+      </ul>
+
+      <h3>Дисциплины текущего семестра</h3>
+      <table class="table">
+        <caption>Учебные дисциплины и форма отчётности</caption>
+        <thead>
+          <tr>
+            <th>Дисциплина</th>
+            <th>Часов</th>
+            <th>Форма отчётности</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Веб-программирование</td>
+            <td>72</td>
+            <td>Экзамен</td>
+          </tr>
+          <tr>
+            <td>Базы данных</td>
+            <td>64</td>
+            <td>Зачёт с оценкой</td>
+          </tr>
+          <tr>
+            <td>Программирование на 1С</td>
+            <td>54</td>
+            <td>Экзамен</td>
+          </tr>
+          <tr>
+            <td>Информационная безопасность</td>
+            <td>36</td>
+            <td>Зачёт</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Подписка на обновления</h3>
+      <p>Оставьте адрес электронной почты, и я сообщу о новых материалах на сайте.</p>
+
+      <form class="form form--subscribe" action="#" method="post">
+        <fieldset>
+          <legend>Подписка</legend>
+
+          <p class="form__row">
+            <label class="form__label" for="subscribe-email">Ваш e-mail</label>
+            <input class="form__input" type="email" id="subscribe-email" name="email"
+                   placeholder="student@example.ru" required>
+          </p>
+
+          <p class="form__row">
+            <label>
+              <input type="checkbox" name="agree" value="yes" checked>
+              Согласен на обработку персональных данных
+            </label>
+          </p>
+
+          <p class="form__row">
+            <button class="button" type="submit">Подписаться</button>
+            <button class="button button--ghost" type="reset">Очистить</button>
+          </p>
+        </fieldset>
+      </form>
+    </main>
+
+    <aside class="sidebar sidebar--right">
+      <h3 class="sidebar__title">Сейчас изучаю</h3>
+      <ul class="sidebar__list">
+        <li>HTML5 и семантическую вёрстку</li>
+        <li>CSS3: селекторы и анимации</li>
+        <li>jQuery и jQuery UI</li>
+      </ul>
+      <h3 class="sidebar__title">Полезные ссылки</h3>
+      <ul class="sidebar__list">
+        <li><a href="https://learn.javascript.ru/" target="_blank" rel="noopener">Учебник по JavaScript</a></li>
+        <li><a href="https://html5css.ru/jquery/default.php" target="_blank" rel="noopener">Справочник jQuery</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Валидатор W3C</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ситникова Екатерина Георгиевна. Учебный проект, группа ПИ1у/24б.</p>
+    <p><a href="sitemap.html">Карта сайта</a> | <a href="contacts.html">Обратная связь</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

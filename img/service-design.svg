@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Оформление и дизайн">
+  <rect width="120" height="120" rx="14" fill="#f6c6cf"/>
+  <path d="M30 86l6-22 40-40 16 16-40 40z" fill="#fdfbe8" stroke="#7d1c16" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M76 24l16 16" stroke="#7d1c16" stroke-width="3"/>
+  <circle cx="40" cy="80" r="5" fill="#d9372b"/>
+</svg>

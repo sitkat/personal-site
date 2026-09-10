@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Карта сайта: полный перечень страниц и разделов">
+  <title>Карта сайта — Ситникова Е. Г.</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__logo" src="img/logo.svg" alt="Логотип персонального сайта">
+    <h1 class="header__title">Ситникова Екатерина Георгиевна</h1>
+    <p class="header__subtitle">Студент, начинающий веб-разработчик</p>
+  </header>
+
+  <nav class="nav" id="main-menu">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+      <li class="nav__item"><a class="nav__link nav__link--active" href="sitemap.html">Карта сайта</a></li>
+      <li class="nav__item"><a class="nav__link" href="about.html">О себе</a></li>
+      <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+      <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar sidebar--left">
+      <h3 class="sidebar__title">Коротко о себе</h3>
+      <ul class="sidebar__list">
+        <li>Группа ПИ1у/24б</li>
+        <li>Направление: прикладная информатика</li>
+        <li>Город: Москва</li>
+      </ul>
+      <h3 class="sidebar__title">Связаться</h3>
+      <ul class="sidebar__list">
+        <li><a href="contacts.html">Форма обратной связи</a></li>
+        <li><a href="contacts.html">Написать через форму</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>Карта сайта</h2>
+
+      <p>Сайт состоит из пяти страниц. Ниже — их полный перечень с кратким
+        описанием, чтобы можно было быстро найти нужный материал.</p>
+
+      <figure class="content__figure">
+        <img class="content__scheme" src="img/sitemap.svg" alt="Схема структуры сайта" width="440">
+        <figcaption>Структура сайта: главная страница и четыре внутренних раздела</figcaption>
+      </figure>
+
+      <h3>Структура разделов</h3>
+      <ul class="sitemap-tree">
+        <li><a href="index.html">Главная</a>
+          <ul>
+            <li>приветствие и краткий рассказ о сайте;</li>
+            <li>дисциплины текущего семестра;</li>
+            <li>форма подписки на обновления.</li>
+          </ul>
+        </li>
+        <li><a href="about.html">О себе</a>
+          <ul>
+            <li>профессиональные навыки;</li>
+            <li>образование и опыт;</li>
+            <li>форма отзыва о работе.</li>
+          </ul>
+        </li>
+        <li><a href="services.html">Услуги</a>
+          <ul>
+            <li>вёрстка страниц;</li>
+            <li>оформление на CSS;</li>
+            <li>поддержка сайта;</li>
+            <li>прайс-лист и форма заказа.</li>
+          </ul>
+        </li>
+        <li><a href="contacts.html">Контакты</a>
+          <ul>
+            <li>способы связи и график ответов;</li>
+            <li>схема проезда;</li>
+            <li>форма обратной связи.</li>
+          </ul>
+        </li>
+        <li><a href="sitemap.html">Карта сайта</a> — эта страница.</li>
+      </ul>
+
+      <hr>
+
+      <h3>Перечень страниц</h3>
+      <table class="table">
+        <caption>Страницы сайта и даты последнего обновления</caption>
+        <thead>
+          <tr>
+            <th>Страница</th>
+            <th>Файл</th>
+            <th>Назначение</th>
+            <th>Обновлена</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="index.html">Главная</a></td>
+            <td>index.html</td>
+            <td>Точка входа на сайт</td>
+            <td>10.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="about.html">О себе</a></td>
+            <td>about.html</td>
+            <td>Резюме и навыки</td>
+            <td>10.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="services.html">Услуги</a></td>
+            <td>services.html</td>
+            <td>Перечень работ и цены</td>
+            <td>10.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="contacts.html">Контакты</a></td>
+            <td>contacts.html</td>
+            <td>Связь с автором</td>
+            <td>10.09.2026</td>
+          </tr>
+          <tr>
+            <td><a href="sitemap.html">Карта сайта</a></td>
+            <td>sitemap.html</td>
+            <td>Навигация по всем разделам</td>
+            <td>10.09.2026</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Поиск по сайту</h3>
+      <p>Не нашли нужный раздел? Укажите, что вы ищете.</p>
+
+      <form class="form form--search" action="#" method="get">
+        <fieldset>
+          <legend>Поиск</legend>
+
+          <p class="form__row">
+            <label class="form__label" for="search-query">Поисковый запрос</label>
+            <input class="form__input" type="search" id="search-query" name="q"
+                   placeholder="Например: прайс-лист" required>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="search-section">Искать в разделе</label>
+            <select class="form__input" id="search-section" name="section">
+              <option value="all">По всему сайту</option>
+              <option value="about">О себе</option>
+              <option value="services">Услуги</option>
+              <option value="contacts">Контакты</option>
+            </select>
+          </p>
+
+          <p class="form__row">
+            <button class="button" type="submit">Найти</button>
+          </p>
+        </fieldset>
+      </form>
+    </main>
+
+    <aside class="sidebar sidebar--right">
+      <h3 class="sidebar__title">Сейчас изучаю</h3>
+      <ul class="sidebar__list">
+        <li>HTML5 и семантическую вёрстку</li>
+        <li>CSS3: селекторы и анимации</li>
+        <li>jQuery и jQuery UI</li>
+      </ul>
+      <h3 class="sidebar__title">Полезные ссылки</h3>
+      <ul class="sidebar__list">
+        <li><a href="https://learn.javascript.ru/" target="_blank" rel="noopener">Учебник по JavaScript</a></li>
+        <li><a href="https://html5css.ru/jquery/default.php" target="_blank" rel="noopener">Справочник jQuery</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Валидатор W3C</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ситникова Екатерина Георгиевна. Учебный проект, группа ПИ1у/24б.</p>
+    <p><a href="sitemap.html">Карта сайта</a> | <a href="contacts.html">Обратная связь</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

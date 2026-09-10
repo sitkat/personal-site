@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="О себе: образование, навыки и интересы Ситниковой Екатерины Георгиевны">
+  <title>О себе — Ситникова Е. Г.</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__logo" src="img/logo.svg" alt="Логотип персонального сайта">
+    <h1 class="header__title">Ситникова Екатерина Георгиевна</h1>
+    <p class="header__subtitle">Студент, начинающий веб-разработчик</p>
+  </header>
+
+  <nav class="nav" id="main-menu">
+    <ul class="nav__list">
+      <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+      <li class="nav__item"><a class="nav__link" href="sitemap.html">Карта сайта</a></li>
+      <li class="nav__item"><a class="nav__link nav__link--active" href="about.html">О себе</a></li>
+      <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+      <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+
+  <div class="layout">
+
+    <aside class="sidebar sidebar--left">
+      <h3 class="sidebar__title">Коротко о себе</h3>
+      <ul class="sidebar__list">
+        <li>Группа ПИ1у/24б</li>
+        <li>Направление: прикладная информатика</li>
+        <li>Город: Москва</li>
+      </ul>
+      <h3 class="sidebar__title">Связаться</h3>
+      <ul class="sidebar__list">
+        <li><a href="contacts.html">Форма обратной связи</a></li>
+        <li><a href="contacts.html">Написать через форму</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <h2>О себе</h2>
+
+      <p>Учусь на третьем курсе по направлению «Прикладная информатика в экономике».
+        Занимаюсь веб-разработкой около двух лет: первые работы — простые страницы на HTML,
+        сейчас изучаю CSS3, JavaScript и работу с системой управления сайтом «1С-Битрикс».</p>
+
+      <figure class="content__figure">
+        <img class="content__photo" src="img/photo.svg" alt="Портрет автора сайта" width="200">
+        <figcaption>Ситникова Екатерина Георгиевна, 3 курс, прикладная информатика</figcaption>
+      </figure>
+
+      <p>Свободное время посвящаю учебным проектам: собираю небольшие сайты,
+        разбираюсь в чужом коде и веду конспекты по пройденному материалу.
+        Подробнее о том, какие задачи беру в работу, написано в разделе
+        <a href="services.html">«Услуги»</a>.</p>
+
+      <hr>
+
+      <h3>Профессиональные навыки</h3>
+      <ul>
+        <li>вёрстка страниц на HTML5: семантические теги, таблицы, формы;</li>
+        <li>оформление на CSS3: селекторы, каскад, блочная модель, адаптивность;</li>
+        <li>основы JavaScript и библиотеки jQuery;</li>
+        <li>работа с СУБД MySQL: запросы, выборки, соединения таблиц;</li>
+        <li>конфигурирование и доработка решений на платформе 1С.</li>
+      </ul>
+
+      <h3>Личные качества</h3>
+      <ol>
+        <li>внимательность к деталям и аккуратность в оформлении кода;</li>
+        <li>готовность разбираться в новой теме самостоятельно;</li>
+        <li>умение доводить учебные задачи до сдачи в срок.</li>
+      </ol>
+
+      <h3>Образование и опыт</h3>
+      <table class="table">
+        <caption>Основные этапы обучения</caption>
+        <thead>
+          <tr>
+            <th>Период</th>
+            <th>Учебное заведение или проект</th>
+            <th>Результат</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2013 — 2024</td>
+            <td>Средняя общеобразовательная школа</td>
+            <td>Аттестат о среднем образовании</td>
+          </tr>
+          <tr>
+            <td>2024 — настоящее время</td>
+            <td>Университет, направление «Прикладная информатика», группа ПИ1у/24б</td>
+            <td>Обучение по специальности</td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>Курс «Основы веб-разработки»</td>
+            <td>Сертификат</td>
+          </tr>
+          <tr>
+            <td>2026</td>
+            <td>Учебная практика: сайт-визитка для студенческого клуба</td>
+            <td>Проект сдан и защищён</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Оставить отзыв</h3>
+      <p>Если мы работали вместе над учебным проектом, напишите пару слов — мне важно мнение.</p>
+
+      <form class="form form--review" action="#" method="post">
+        <fieldset>
+          <legend>Отзыв о работе</legend>
+
+          <p class="form__row">
+            <label class="form__label" for="review-name">Ваше имя</label>
+            <input class="form__input" type="text" id="review-name" name="name"
+                   placeholder="Как к вам обращаться" required>
+          </p>
+
+          <p class="form__row">
+            <label class="form__label" for="review-text">Текст отзыва</label>
+            <textarea class="form__input" id="review-text" name="review" rows="5"
+                      placeholder="Что понравилось, что стоит улучшить"></textarea>
+          </p>
+
+          <fieldset class="form__group">
+            <legend>Общая оценка</legend>
+            <label><input type="radio" name="mark" value="5" checked> отлично</label>
+            <label><input type="radio" name="mark" value="4"> хорошо</label>
+            <label><input type="radio" name="mark" value="3"> есть замечания</label>
+          </fieldset>
+
+          <p class="form__row">
+            <button class="button" type="submit">Отправить отзыв</button>
+          </p>
+        </fieldset>
+      </form>
+    </main>
+
+    <aside class="sidebar sidebar--right">
+      <h3 class="sidebar__title">Сейчас изучаю</h3>
+      <ul class="sidebar__list">
+        <li>HTML5 и семантическую вёрстку</li>
+        <li>CSS3: селекторы и анимации</li>
+        <li>jQuery и jQuery UI</li>
+      </ul>
+      <h3 class="sidebar__title">Полезные ссылки</h3>
+      <ul class="sidebar__list">
+        <li><a href="https://learn.javascript.ru/" target="_blank" rel="noopener">Учебник по JavaScript</a></li>
+        <li><a href="https://html5css.ru/jquery/default.php" target="_blank" rel="noopener">Справочник jQuery</a></li>
+        <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Валидатор W3C</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ситникова Екатерина Георгиевна. Учебный проект, группа ПИ1у/24б.</p>
+    <p><a href="sitemap.html">Карта сайта</a> | <a href="contacts.html">Обратная связь</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
