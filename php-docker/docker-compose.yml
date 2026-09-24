@@ -1,0 +1,13 @@
+# Локальный веб-сервер для учебного сайта mysite.local (ПР 2 «Знакомство с PHP»).
+# Корень сайта — каталог ../../mysite.local, он монтируется в /var/www/html.
+name: mysite-local
+
+services:
+  web:
+    build: .
+    container_name: mysite-web
+    ports:
+      - "8081:80"
+    volumes:
+      - ../../mysite.local:/var/www/html
+    restart: unless-stopped
